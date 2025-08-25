@@ -16,7 +16,7 @@ export default function CarruselPorGeneroNative() {
   }, [])
 
   return (
-  {/*Scrollview para el catalogo de series dividido por genero*/}
+
     <ScrollView style={styles.container}>
       {Object.entries(SeriesPorGenero).map(([genero, series]) => (
         <View key={genero} style={styles.seccion}>
@@ -26,10 +26,10 @@ export default function CarruselPorGeneroNative() {
               <TouchableOpacity
                 key={serie.id}
                 style={styles.card}
-  {/*Al presionar la imagen de la serie se redireccionara a la información*/}
+
                 onPress={() => navigation.navigate('Detail', { serie })}
               >
-  {/*Se manda a llamar la imagen de cada serie*/}
+
                 <Image
                   source={{ uri: serie.poster_url }}
                   style={styles.poster}
