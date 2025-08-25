@@ -1,6 +1,9 @@
+//Componente que funciona para mandar a llamar el catalogo de series
+//Importa REACT y componentes básicos de React Native
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+//Componente funcional que muestra un mensaje de bienvenida
 const SeriesComponent = () => {
     return (
     <View style={styles.container}>
@@ -10,6 +13,7 @@ const SeriesComponent = () => {
     );
 };
 
+//Estilos
 const styles = StyleSheet.create({
     container:
     {
