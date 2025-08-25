@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { View, ScrollView, Text, Image,StyleSheet, TouchableOpacity } from 'react-native';
+
+//Importación de componentes personalizados
 import PeliculasComponent from '../components/PeliculasComponent';
 import SeriesComponent from '../components/SeriesComponent';
 import InicioComponent from '../components/InicioComponent';
 import CarruselPorGenero from '../components/CarruselPorGenero';
 import QueVerComponent from '../components/QueverComponent';
 import DetailScreen from './DetailScreen';
+
+//Cliente supabase y navegación
 import { Sinopsis } from '../services/supabase';
 import { RootStackParamList } from '../types/Show';
 import { useNavigation } from '@react-navigation/native';
@@ -14,11 +18,17 @@ import TopBar from '../components/TopBar'
 import { getUser } from '../services/auth'
 import { useEffect } from 'react'
 
+/*
+* Pantalla principal de la aplicación
+* Muestra contenido dinámico según la opción seleccionada 
+* Integra componentes como Inicio, series, carrusel por genero
+*/
 const HomeScreen = () => {
     //Estados para saber que opción esta seleccionada
 const [selected, setSelected] = useState('Inicio');
+// Estado para mostrar el nombre de usuario autenticado
 const [nombreUsuario, setNombreUsuario] = useState('')
-
+//Obtiene el nombre del usuario desde Supabase
 useEffect(() => {
   const fetchNombre = async () => {
     const user = await getUser()
@@ -31,9 +41,8 @@ useEffect(() => {
   return (
     //Vista para encabezado
     <View style={{flex: 1}}>
-
       <TopBar selected={selected} setSelected={setSelected} />
-
+        {/*Contenido principal con scroll*/}
     <ScrollView style={{ flex: 1, backgroundColor: '#000000ff' }}>
 <View style={styles.content}>
   {selected === 'Inicio' && (
