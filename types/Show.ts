@@ -40,4 +40,5 @@ export type RootStackParamList = {
   Home: undefined;
   Detail: { serie: Serie };
   Login: undefined
+  Registro: undefined
 };

@@ -13,6 +13,7 @@ import { Session } from '@supabase/supabase-js'
 import LoginScreen from '../Screens/Login'
 import HomeScreen from '../Screens/HomeScreen'
 import DetailScreen from '../Screens/DetailScreen'
+import Registro from '../components/Registro'
 //Tipos para las rutas del stack
 import { RootStackParamList } from '../types/Show'
 //Se crea el stack de navegación con los tipos definidos
@@ -46,7 +47,10 @@ export default function AppNavigator() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {/*Si no hay sesión, muestra la pantalla de Login, caso contrario muestra la pantalla principal*/}
         {!session ? (
+          <>
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Registro" component={Registro} />
+          </>
         ) : (
           <>
             <Stack.Screen name="Home" component={HomeScreen} />
