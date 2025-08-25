@@ -1,23 +1,32 @@
+//Componente para mostrar la barra superior con el logo y las opciones de inicio, series y cuenta
+
+//Hooks de React y componentes de React Native
 import { useEffect, useState } from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+//Navegación entre pantallas
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+//Tipo de navegación
 import { RootStackParamList } from '../types/Show'
 import { supabase } from '../services/supabase'
 import { useUserMenu } from '../Hook/useUserMenu'
 import { SafeAreaView } from 'react-native'
 import { StatusBar, Platform } from 'react-native'
 
+//Props que recibe el componente
 type Props = {
-  selected: string
-  setSelected?: (option: string) => void
+  selected: string //Opción actualmente seleccionada en la barra
+  setSelected?: (option: string) => void //Función para actualizar la opción seleccionada
 }
 
+//Componente principal de la barra superior
 export default function TopBar({ selected, setSelected }: Props) {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
+//Estado para guardar el correo del usuario autenticado
   const [email, setEmail] = useState('')
+//Hook personalizado para controlar la visibilidad del menu y acciones
   const { visible, toggleMenu, goToSettings, logout } = useUserMenu()
-
+//Obtiene el correo del usuario al montar el componente
   useEffect(() => {
     const fetchEmail = async () => {
       const { data } = await supabase.auth.getUser()
@@ -27,29 +36,31 @@ export default function TopBar({ selected, setSelected }: Props) {
     }
     fetchEmail()
   }, [])
-
+//Maneja la navegación y selección de opción
   const handlePress = (option: string) => {
     if (option === 'Inicio') {
+//Reinicia la navegación a la pantalla principal
       navigation.reset({
         index: 0,
         routes: [{ name: 'Home' }],
       })
     }
-
+//Actualiza la opción seleccionada si se proporciona la función
     if (setSelected) {
       setSelected(option)
     }
   }
-
+//Opciones disponibles
   const options = ['Inicio', 'Series']
 
 return (
   <SafeAreaView style={styles.safeArea}>
   <View style={styles.header}>
+    {/*Logo que redirige a 'Inicio'*/}
     <TouchableOpacity onPress={() => handlePress('Inicio')} activeOpacity={0.7}>
       <Image source={require('../assets/logo.jpeg')} style={styles.logo} />
     </TouchableOpacity>
-
+    {/*Sección central con opciones de navegación'*/}
   <View style={styles.centerSection}>
     <View style={styles.optionRow}>
       {options.map((option) => (
@@ -61,12 +72,12 @@ return (
       ))}
     </View>
   </View>
-
+    {/*Seción de usuario con menu desplegable*/}
     <View style={styles.greetingContainer}>
       <TouchableOpacity onPress={toggleMenu}>
         <Text style={styles.greeting}>Hola, {email}</Text>
       </TouchableOpacity>
-
+    {/*Menú visible al seleccionar el saludo*/}
       {visible && (
         <View style={styles.menu}>
           <TouchableOpacity onPress={goToSettings}>
@@ -82,6 +93,8 @@ return (
   </SafeAreaView>
 )
 }
+
+//Estilos
 const styles = StyleSheet.create({
 header: {
   flexDirection: 'row',
