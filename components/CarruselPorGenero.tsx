@@ -11,10 +11,12 @@ export default function CarruselPorGeneroNative() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
   useEffect(() => {
+//Se manda a llamar la consulta de la series
     fetchSeriesPorGenero().then(setSeriesPorGenero)
   }, [])
 
   return (
+  {/*Scrollview para el catalogo de series dividido por genero*/}
     <ScrollView style={styles.container}>
       {Object.entries(SeriesPorGenero).map(([genero, series]) => (
         <View key={genero} style={styles.seccion}>
@@ -24,8 +26,10 @@ export default function CarruselPorGeneroNative() {
               <TouchableOpacity
                 key={serie.id}
                 style={styles.card}
+  {/*Al presionar la imagen de la serie se redireccionara a la información*/}
                 onPress={() => navigation.navigate('Detail', { serie })}
               >
+  {/*Se manda a llamar la imagen de cada serie*/}
                 <Image
                   source={{ uri: serie.poster_url }}
                   style={styles.poster}
@@ -40,7 +44,7 @@ export default function CarruselPorGeneroNative() {
     </ScrollView>
   )
 }
-
+  {/*Estilos*/}
 const styles = StyleSheet.create({
   container: { padding: 16, backgroundColor: '#000000ff' },
   seccion: { marginBottom: 24 },
