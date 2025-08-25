@@ -13,7 +13,7 @@ export function useUserMenu() {
 
   const goToSettings = () => {
     closeMenu()
-    //navigation.navigate('Settings') // Asegúrate de tener esta ruta
+    //navigation.navigate('Settings') 
   }
 
   const logout = async () => {
