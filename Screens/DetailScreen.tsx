@@ -1,24 +1,42 @@
+//Pantalla que muestra detalles de cada serie con sus capitulos, temporadas y sinopsis.
+
+//Importar componentes de React Native 
 import {View,Text,Image,ImageBackground,StyleSheet,TouchableOpacity,ScrollView} from 'react-native'
+
+//Importar herramientas de navegación para acceder a parametros
 import { useRoute, RouteProp } from '@react-navigation/native'
 import { RootStackParamList } from '../types/Show'
+
+//Importar hooks de React
 import { useEffect, useState } from 'react'
+//Componentes personalizados
 import TopBar from '../components/TopBar'
 import CarruselPorGenero from '../components/CarruselPorGenero'
+
+//Componente de selección de temporada
 import { Picker } from '@react-native-picker/picker'
 
+//Tipado estricto para acceder a los parametros de navegación
 type DetailScreenRouteProp = RouteProp<RootStackParamList, 'Detail'>
 
+/*
+* Pantalla de detalle de una serie
+* Permite cambiar entre secciones: Detalle, series, inicio,etc
+*
+*/
 export default function DetailScreen() {
+//Obtiene parámetros de navegación
   const route = useRoute<DetailScreenRouteProp>()
   const { serie } = route.params
-
+//Estado para controlar la sección activa
   const [selected, setSelected] = useState('Detalle')
+//Estado para controlar la temporada seleccionada
   const [temporadaSeleccionada, setTemporadaSeleccionada] = useState<number>(1)
-
+//Muestra en consola los datos de la serie al montar el componente
   useEffect(() => {
     console.log('Serie recibida:', JSON.stringify(serie, null, 2))
   }, [])
-
+//Genera un array con los números de temporadas disponibles
   const temporadas = Array.from({ length: serie.temporadas }, (_, i) => i + 1)
 
   return (
@@ -85,6 +103,7 @@ export default function DetailScreen() {
   )
 }
 
+//Estilos
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000' },
   banner: { height: 250, resizeMode: 'cover' },
