@@ -1,3 +1,8 @@
+  //Estructura el contendio de las series y define los parámetros de navegación
+
+
+//Representa una serie destacada o recomendadad para utilizar en banners
+
 export interface Show {
   id: string;
   title: string;
@@ -7,6 +12,7 @@ export interface Show {
   poster_url: string;
 }
 
+//Representa una serie completa con estructura detallada, para navegar entre episoidos
 export type Serie = {
   id: number;
   nombre: string;
@@ -23,12 +29,13 @@ export type Serie = {
 
 
 };
-
+//Representa un capítulo individual dentro de una temporada marcando el numero y titulo.
 export type Capitulo = {
   numero: number
   titulo: string
 }
 
+// Define los parámetros de navegación entre pantallas en React Navigation
 export type RootStackParamList = {
   Home: undefined;
   Detail: { serie: Serie };
