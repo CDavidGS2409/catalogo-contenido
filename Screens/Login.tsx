@@ -1,22 +1,29 @@
 import { useState } from 'react'
 import { View, TextInput, Button, Alert, Image, StyleSheet } from 'react-native'
+//Función de autenticación desde Supabase
 import { signIn } from '../services/auth'
-
+/**
+*Pantalla de Login
+*Permite al usuario ingresar su correo y contraseña para iniciar sesión
+*/
 export default function Login() {
+//Estados de captura
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+//Valida si el correo tiene un dominio permitido
   const validateEmail = (email: string) => {
     const allowedDomains = ['.com', 'gmail.com', 'outlook.com', 'hotmail.com']
     return allowedDomains.some(domain => email.endsWith(domain))
   }
-
+/*Valida si la contraseña tiene al menos una mayúscula  y 8 caracteres
+* Para reforzar la seguridad de acceso 
+*/
   const validatePassword = (password: string) => {
     const hasUppercase = /[A-Z]/.test(password)
     const hasMinLength = password.length >= 8
     return hasUppercase && hasMinLength
   }
-
+// Maneja el proceso de Login realizando validaciones
   const handleLogin = async () => {
     if (!validateEmail(email)) {
       Alert.alert('Correo inválido')
@@ -39,9 +46,10 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
+{/* Caja principal del login */}
       <View style={styles.loginBox}>
         <Image source={require('../assets/logo.jpeg')} style={styles.logo} />
-
+{/* Formulario de ingreso */}
         <View style={styles.form}>
           <TextInput
             placeholder="Correo"
@@ -64,7 +72,7 @@ export default function Login() {
     </View>
   )
 }
-
+//Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
