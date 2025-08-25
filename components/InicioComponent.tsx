@@ -1,3 +1,6 @@
+//Componente que renderiza un carrusel horizontal de series en el menu principal. Se actualiza cada 8 segundos y permite
+//navegar a la pantalla
+
 import { useEffect, useRef, useState } from 'react'
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet,ScrollView, Dimensions, FlatList } from 'react-native'
 import { Banner } from '../services/supabase'
@@ -10,26 +13,27 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 const { width } = Dimensions.get('window')
 
 type Props = {
-  selected: string
+  selected: string //Indica si la pestaña actual es "Inicio". Carga el contenido si selected == 'Inicio'
 }
 
 export default function InicioComponent({ selected }: Props) {
-  const [series, setSeries] = useState<Serie[]>([])
-  const scrollRef = useRef<ScrollView>(null)
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
-  const currentIndex = useRef(0)
-
+  const [series, setSeries] = useState<Serie[]>([]) //Lista de series obtenidas de Supabase
+  const scrollRef = useRef<ScrollView>(null) //Scrollview para el control manual del scroll
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>() //Permite navegar a la pantalla 'Detail' de DetailScreen' pasando el objeto serie como parametro
+  const currentIndex = useRef(0) //Indice actual del carrusel
+//Bloque que funciona solo si la pestaña es "Inicio"/"HomeScreen"
   useEffect(() => {
     if (selected !== 'Inicio') return
 
     const cargarSeries = async () => {
-      const data = await Banner()
+      const data = await Banner() //Llama la función Banner() para obtener las series destacadas
       if (data) setSeries(data)
     }
 
     cargarSeries()
   }, [selected])
 
+//Bloque para que cada 8 segundos avanza automáticamente al siguiente banner
   useEffect(() => {
     if (series.length === 0) return
 
@@ -55,6 +59,7 @@ export default function InicioComponent({ selected }: Props) {
         currentIndex.current = Math.round(x / width)
       }}
     >
+    {/*Renderiza cada serie como un banner con imagen de fondo*/}
       {series.map((serie) => (
         <TouchableOpacity
           key={serie.id}
@@ -62,11 +67,13 @@ export default function InicioComponent({ selected }: Props) {
           onPress={() => navigation.navigate('Detail', { serie })}
           style={{ width }}
         >
+    {/*Imagen de fondo con overlay oscuro*/}
           <ImageBackground
             source={{ uri: serie.poster_url }}
             style={{ width, height: 300 }}
             resizeMode="cover"
           >
+    {/*Titulo y sinopsis*/}
             <View style={styles.overlay}>
               <Text style={styles.titulo}>{serie.nombre}</Text>
               <Text style={styles.sinopsis} numberOfLines={3}>{serie.sinopsis}</Text>
@@ -75,6 +82,7 @@ export default function InicioComponent({ selected }: Props) {
                   style={styles.boton}
                   onPress={() => navigation.navigate('Detail', { serie })}
                 >
+    {/*Botones de accion*/}
                   <Text style={styles.botonTexto}>Ver ahora</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.boton, styles.botonSecundario]}>
@@ -89,6 +97,8 @@ export default function InicioComponent({ selected }: Props) {
   )
 }
 
+
+//Estilos
 const styles = StyleSheet.create({
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.5)',
