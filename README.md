@@ -15,6 +15,9 @@ Este proyecto se ejecuta con Expo, lo que permite probarlo fácilmente en múlti
 
 Desde la terminal, se abrirá una interfaz con código QR y opciones para correr la app en Web, Android o iOS.
 
+<img width="1173" height="874" alt="imagen" src="https://github.com/user-attachments/assets/7a58f172-e22e-4e51-b0be-37e70e6d18f6" />
+
+
 
 Funciones de SQL implementadas 
 Aunque no se escribió SQL directamente, Supabase ejecuta internamente las siguientes operaciones:
