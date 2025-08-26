@@ -50,15 +50,15 @@ Durante el desarrollo se utilizaron los siguientes prompts para optimizar el có
 
 Si dispusiera de más tiempo, implementaría las siguientes mejoras:
 
-   - Diseño visual refinado con herramientas como Figma o Framer
+  - Diseño visual refinado con herramientas como Figma o Framer
 
-   -Configuración de usuario: cambio de tema, cuenta, preferencias
+  -Configuración de usuario: cambio de tema, cuenta, preferencias
 
-   -Algoritmo de recomendaciones basado en comportamiento y búsquedas
+  -Algoritmo de recomendaciones basado en comportamiento y búsquedas
 
-   -Mini reproductor para trailers o avances al seleccionar una serie
+  -Mini reproductor para trailers o avances al seleccionar una serie
 
-   -Sistema de ranking para mostrar las series más vistas y populares
+  -Sistema de ranking para mostrar las series más vistas y populares
 
 
 
