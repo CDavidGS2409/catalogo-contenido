@@ -1,19 +1,61 @@
-Nombre Proyecto - CatalogoPrueba
-Database Password - uTEtws0bLej4TeA3
+Reto técnico: Catálogo de contenido (estilo Netflix)
+Autor: Carlos David Gómez Serna
 
-Propst de IA
+Tecnologías utilizadas:
+  - Visual Studio Code – Entorno de desarrollo
+  - Supabase – Backend como servicio (BaaS) para autenticación y base de datos
+  - Expo + React Native – Framework para desarrollo móvil multiplataforma
+  - TypeScript – Tipado estático para mayor robustez
+  - IA (Copilot) – Asistencia técnica para optimización de código y diseño de interfaz
 
-Copilot
+Cómo ejecutar el proyecto.
+Este proyecto se ejecuta con Expo, lo que permite probarlo fácilmente en múltiples plataformas.
+    
+  <img width="265" height="42" alt="imagen" src="https://github.com/user-attachments/assets/d4af1d2e-c392-4cb9-879e-84f08f19948d" />
 
-- Muestra como crear un interfaz de inicio. Donde se vea el logo, y a lado varias opciones como Prime video. Muestrame pequeñas parte del codigo para que me pueda a orientar a hacerlo.
+Desde la terminal, se abrirá una interfaz con código QR y opciones para correr la app en Web, Android o iOS.
 
-Resultado - Pequeño fragmento de la interfaz y estilos.
 
-- Convertir cada opción en un botón táctil (TouchableOpacity) para cambiar el contenido o el tema visual. También para que se destaque al seleccionarse. Orientame a hacerlo, no muestres todo el código
+Funciones de SQL implementadas 
+Aunque no se escribió SQL directamente, Supabase ejecuta internamente las siguientes operaciones:
 
--Creame una lista para supabase en un archivo .json para descargar con los siguientes datos de 20 series catalalogadas por genero, nombre de la pelicula/serie, poster, sinopsis, lista de capitulos y numero de temporadas
 
--Muestrame como importar los datos de database, para que en mi interfaz se muestre el carrete horizontal de series, así como que se muestren por genero
+<img width="688" height="406" alt="imagen" src="https://github.com/user-attachments/assets/f97f729f-c432-4e3f-9eb7-7bf9078f2b1b" />
 
--Muestrame como hacer que al seleccionar cada pelicula me muestre la sinopsis, temporadas y que al seleccionar las temporadas muestre los capitulos. Muestrame parte del codigo para poder orientarme
+
+
+Decisiones tecnicas: 
+Se eligió TypeScript por su capacidad para mantener un código limpio, seguro y escalable. La arquitectura se diseñó en torno a componentes reutilizables, lo que permite mantener la lógica separada y facilitar futuras extensiones. Se creó un archivo de tipos (types) para garantizar consistencia en los datos y facilitar la integración con Supabase.
+
+Además, se implementó un hook personalizado para gestionar las opciones del usuario, mejorando la experiencia y manteniendo la lógica encapsulada. La IA (Copilot) fue utilizada estratégicamente para resolver dudas específicas, generar fragmentos de código y acelerar el diseño visual. Esta combinación permitió construir una interfaz funcional, modular y preparada para escalar hacia una experiencia tipo Netflix.
+
+Prompts utilizados con IA
+
+Durante el desarrollo se utilizaron los siguientes prompts para optimizar el código y la experiencia visual:
+
+   - Diseño de interfaz de inicio con logo y opciones tipo Prime Video
+
+   - Botones táctiles con cambio de contenido y estilo visual
+
+   - Generación de catálogo en JSON con 20 series clasificadas por género
+
+   - Consulta y visualización de datos desde Supabase en carouseles horizontales
+
+   - Navegación entre sinopsis, temporadas y capítulos al seleccionar una serie
+
+
+
+Si dispusiera de más tiempo, implementaría las siguientes mejoras:
+
+   - Diseño visual refinado con herramientas como Figma o Framer
+
+   -Configuración de usuario: cambio de tema, cuenta, preferencias
+
+   -Algoritmo de recomendaciones basado en comportamiento y búsquedas
+
+   -Mini reproductor para trailers o avances al seleccionar una serie
+
+   -Sistema de ranking para mostrar las series más vistas y populares
+
+
 
