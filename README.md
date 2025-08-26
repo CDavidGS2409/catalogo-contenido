@@ -28,41 +28,34 @@ Decisiones tecnicas:
 Se eligió TypeScript por su capacidad para mantener un código limpio, seguro y escalable. La arquitectura se diseñó en torno a componentes reutilizables, lo que permite mantener la lógica separada y facilitar futuras extensiones. Se creó un archivo de tipos (types) para garantizar consistencia en los datos y facilitar la integración con Supabase.
 
 Además, se implementó un hook personalizado para gestionar las opciones del usuario, mejorando la experiencia y manteniendo la lógica encapsulada. La IA (Copilot) fue utilizada estratégicamente para resolver dudas específicas, generar fragmentos de código y acelerar el diseño visual. Esta combinación permitió construir una interfaz funcional, modular y preparada para escalar hacia una experiencia tipo Netflix.
-Prompts de IA
 
-Se utilizaron los siguientes prompts para optimizar el codigo.
+Prompts utilizados con IA
 
-- Muestra como crear un interfaz de inicio. Donde se vea el logo, y a lado varias opciones como Prime video. Muestrame pequeñas parte del codigo para que me pueda a orientar a hacerlo.
+Durante el desarrollo se utilizaron los siguientes prompts para optimizar el código y la experiencia visual:
 
-Resultado: Pequeño fragmento de la interfaz con estilos.
+   - Diseño de interfaz de inicio con logo y opciones tipo Prime Video
 
-- Convertir cada opción en un botón táctil  para cambiar el contenido o el tema visual. También para que se destaque al seleccionarse. 
+   - Botones táctiles con cambio de contenido y estilo visual
 
-Resultado: Dio ejemplos de como utilizar TouchableOpacity y aplicar los estilos.
+   - Generación de catálogo en JSON con 20 series clasificadas por género
 
--Creame una lista para supabase en un archivo .json para descargar con los siguientes datos de 20 series catalalogadas por genero, nombre de series, poster, sinopsis, lista de capitulos y numero de temporadas
+   - Consulta y visualización de datos desde Supabase en carouseles horizontales
 
-Resultado: Genero un json con 20 series aleatorias con sinopsis, el número de temporadas y una lista con 3 capitulos.
+   - Navegación entre sinopsis, temporadas y capítulos al seleccionar una serie
 
--Muestrame como importar los datos de supabase, para que en mi interfaz se muestre el carrete horizontal de series, así como que se muestren por genero
 
-Resultado: Mostro como hacer consultas en react native y mandarlo a llamar en las pantallas.
 
--Muestrame como hacer que al seleccionar cada pelicula me muestre la sinopsis, temporadas y que al seleccionar las temporadas muestre los capitulos. Muestrame parte del codigo para poder orientarme.
+Si dispusiera de más tiempo, implementaría las siguientes mejoras:
 
-Resultado: Creo las funciones e importo metodos para crear la opción de seleccionar una pelicula. 
+   - Diseño visual refinado con herramientas como Figma o Framer
 
-Si se dispusiera de más tiempo, se implementarían las siguientes mejoras:
+   -Configuración de usuario: cambio de tema, cuenta, preferencias
 
-    Diseño visual refinado con herramientas como Figma o Framer
+   -Algoritmo de recomendaciones basado en comportamiento y búsquedas
 
-    Configuración de usuario: cambio de tema, cuenta, preferencias
+   -Mini reproductor para trailers o avances al seleccionar una serie
 
-    Algoritmo de recomendaciones basado en comportamiento y búsquedas
-
-    Mini reproductor para trailers o avances al seleccionar una serie
-
-    Sistema de ranking para mostrar las series más vistas y populares
+   -Sistema de ranking para mostrar las series más vistas y populares
 
 
 
