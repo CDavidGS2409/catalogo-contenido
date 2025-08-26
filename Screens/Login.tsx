@@ -1,7 +1,11 @@
 import { useState } from 'react'
-import { View, TextInput, Button, Alert, Image, StyleSheet } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { View, TextInput, Button, Alert, Image, StyleSheet,TouchableOpacity,Text } from 'react-native'
 //Función de autenticación desde Supabase
 import { signIn } from '../services/auth'
+import Registro from '../components/Registro'
+import { RootStackParamList } from '../types/Show'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 /**
 *Pantalla de Login
 *Permite al usuario ingresar su correo y contraseña para iniciar sesión
@@ -10,6 +14,7 @@ export default function Login() {
 //Estados de captura
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 //Valida si el correo tiene un dominio permitido
   const validateEmail = (email: string) => {
     const allowedDomains = ['.com', 'gmail.com', 'outlook.com', 'hotmail.com']
@@ -67,6 +72,10 @@ export default function Login() {
             style={styles.input}
           />
           <Button title="Iniciar sesión" onPress={handleLogin} />
+           {/* Botón para ir al registro */}
+          <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
+            <Text style={styles.link}>¿No tienes cuenta? Regístrate</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -104,4 +113,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 8,
   },
+   link: {
+    color: '#1E90FF',
+    marginTop: 16,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }
 })

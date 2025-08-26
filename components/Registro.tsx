@@ -7,12 +7,17 @@ import {
   Image,
   StyleSheet
 } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../types/Show'
 import { signUp } from '../services/auth'
 
 export default function Registro() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
+
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
   // Validación básica de correo
   const validateEmail = (email: string) => {
@@ -46,11 +51,12 @@ export default function Registro() {
 
     const { error } = await signUp({ email, password, name })
 
-    if (error) {
-      Alert.alert('Error al registrar', error.message)
-    } else {
-      Alert.alert('Registro exitoso', `Bienvenido ${name}`)
-    }
+  if (error) {
+    Alert.alert('Error al registrar', error.message)
+  } else {
+    Alert.alert('Registro exitoso', `Bienvenido ${name}`)
+    navigation.navigate('Login') 
+  }
   }
 
   return (
@@ -64,6 +70,7 @@ export default function Registro() {
             onChangeText={setName}
             value={name}
             style={styles.input}
+            placeholderTextColor="#aaa"
           />
           <TextInput
             placeholder="Correo"
@@ -72,6 +79,7 @@ export default function Registro() {
             onChangeText={setEmail}
             value={email}
             style={styles.input}
+            placeholderTextColor="#aaa"
           />
           <TextInput
             placeholder="Contraseña"
@@ -79,6 +87,7 @@ export default function Registro() {
             onChangeText={setPassword}
             value={password}
             style={styles.input}
+            placeholderTextColor="#aaa"
           />
           <Button title="Registrarse" onPress={handleRegister} />
         </View>

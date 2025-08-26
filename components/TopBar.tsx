@@ -127,7 +127,7 @@ header: {
   padding: 16,
   backgroundColor: '#111',
   borderBottomWidth: 1,
-  borderBottomColor: '#333',
+  borderBottomColor: '#111010ff',
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -138,7 +138,7 @@ header: {
   },
 
 menu: {
-  backgroundColor: '#222',
+  backgroundColor: '#0e0d0dff',
   padding: 8,
   borderRadius: 6,
   marginBottom: 8,
