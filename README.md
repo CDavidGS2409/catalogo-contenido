@@ -2,11 +2,11 @@ Reto técnico: Catálogo de contenido (estilo Netflix)
 Autor: Carlos David Gómez Serna
 
 Tecnologías utilizadas:
- -Visual Studio Code – Entorno de desarrollo
- -Supabase – Backend como servicio (BaaS) para autenticación y base de datos
- -Expo + React Native – Framework para desarrollo móvil multiplataforma
- -TypeScript – Tipado estático para mayor robustez
- -IA (Copilot) – Asistencia técnica para optimización de código y diseño de interfaz
+  - Visual Studio Code – Entorno de desarrollo
+  - Supabase – Backend como servicio (BaaS) para autenticación y base de datos
+  - Expo + React Native – Framework para desarrollo móvil multiplataforma
+  - TypeScript – Tipado estático para mayor robustez
+  - IA (Copilot) – Asistencia técnica para optimización de código y diseño de interfaz
 
 Cómo ejecutar el proyecto.
 Este proyecto se ejecuta con Expo, lo que permite probarlo fácilmente en múltiples plataformas.
