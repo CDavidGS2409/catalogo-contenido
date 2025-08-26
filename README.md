@@ -2,44 +2,32 @@ Reto técnico: Catálogo de contenido (estilo Netflix)
 Autor: Carlos David Gómez Serna
 
 Tecnologías utilizadas:
-  - Visual Studio Code
-  - Supabase (Backend y autenticación)
-  - Expo (React Native)
-  - IA (Copilot)
-
+ -Visual Studio Code – Entorno de desarrollo
+ -Supabase – Backend como servicio (BaaS) para autenticación y base de datos
+ -Expo + React Native – Framework para desarrollo móvil multiplataforma
+ -TypeScript – Tipado estático para mayor robustez
+ -IA (Copilot) – Asistencia técnica para optimización de código y diseño de interfaz
 
 Cómo ejecutar el proyecto.
-Este proyecto fue desarrollado con Expo para facilitar la ejecución multiplataforma.
-En la terminal del sistema, entrar a la carpeta del proyecto y ejecutar el siguiente comando. 
+Este proyecto se ejecuta con Expo, lo que permite probarlo fácilmente en múltiples plataformas.
     
-  -  npx expo start  <img width="265" height="42" alt="imagen" src="https://github.com/user-attachments/assets/d4af1d2e-c392-4cb9-879e-84f08f19948d" />
+  <img width="265" height="42" alt="imagen" src="https://github.com/user-attachments/assets/d4af1d2e-c392-4cb9-879e-84f08f19948d" />
+
+Desde la terminal, se abrirá una interfaz con código QR y opciones para correr la app en Web, Android o iOS.
 
 
-A continuación se muestra un codigo QR y diversas opciones para ejecutarlo en web, android o IOS
+Funciones de SQL implementadas 
+Aunque no se escribió SQL directamente, Supabase ejecuta internamente las siguientes operaciones:
 
 
+<img width="688" height="406" alt="imagen" src="https://github.com/user-attachments/assets/f97f729f-c432-4e3f-9eb7-7bf9078f2b1b" />
 
-
-
-Funciones de SQL implementadas: Se utilizo supabase como backend por lo que se hicieron las siguientes consultas. 
-
-
-Select: Recupera todos los registros de la tabla series
-    supabase.from('series').select('*')
-Order by: Ordena los resultados por el campo genero en orden ascendente 
-    .order('genero',{ascending: true})
-Select con columnas especificas: Recupera solo las columnas necesarias, optimizando la consulta
-    .select('nombre,sinopsis, temporada, capitulos')
-Autenticación: Internamente, Supabase gestiona esas operaciones con SQL sobre la tabla de usuarios utilizando, Insert, Select y Update.
-    supabase.auth.signUp()
-    supabase.auth.signInWithPassword()
-    supabase.auth.getUser()
 
 
 Decisiones tecnicas: 
-Se decidio utilizar TypeScript por facilidad de uso, se recurrio a la IA para optimizar el programa y resolver dudas especificas. Decidi crear diferentes componentes para mandar a llamar en las pantallas y tener limpio el código. También se creo un archivo type para mandar a llamar en cada componente, así mismo se utilizo un hook personalizado para las opciones de usuario 
+Se eligió TypeScript por su capacidad para mantener un código limpio, seguro y escalable. La arquitectura se diseñó en torno a componentes reutilizables, lo que permite mantener la lógica separada y facilitar futuras extensiones. Se creó un archivo de tipos (types) para garantizar consistencia en los datos y facilitar la integración con Supabase.
 
-
+Además, se implementó un hook personalizado para gestionar las opciones del usuario, mejorando la experiencia y manteniendo la lógica encapsulada. La IA (Copilot) fue utilizada estratégicamente para resolver dudas específicas, generar fragmentos de código y acelerar el diseño visual. Esta combinación permitió construir una interfaz funcional, modular y preparada para escalar hacia una experiencia tipo Netflix.
 Prompts de IA
 
 Se utilizaron los siguientes prompts para optimizar el codigo.
@@ -64,10 +52,17 @@ Resultado: Mostro como hacer consultas en react native y mandarlo a llamar en la
 
 Resultado: Creo las funciones e importo metodos para crear la opción de seleccionar una pelicula. 
 
-Qué haria a continuación si tuviera más tiempo:
-- Diseñaria la interfaz utilizando herramientas de diseño manteniendo su funcionalidad
-- Agregaría opciones de usuario donde pueda cambiar el estilo de la interfaz, cambiar cuenta y otras configuraciones
-- Crearía un algoritmo que dependiendo de las busquedas del úsuario le mostrara un carrusel con posibles recomendaciones
-- Implementaría un mini reproductor al seleccionar la imagen de la serie para que el usuario se animara a ver el programa
-- Implementaria un sistema de ranking de las series mas vistas
+Si se dispusiera de más tiempo, se implementarían las siguientes mejoras:
+
+    Diseño visual refinado con herramientas como Figma o Framer
+
+    Configuración de usuario: cambio de tema, cuenta, preferencias
+
+    Algoritmo de recomendaciones basado en comportamiento y búsquedas
+
+    Mini reproductor para trailers o avances al seleccionar una serie
+
+    Sistema de ranking para mostrar las series más vistas y populares
+
+
 
